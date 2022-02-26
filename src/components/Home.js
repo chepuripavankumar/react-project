@@ -14,9 +14,12 @@ export default function Home(){
 
 return true;
   }
+.background{
+  color:red;
+}
 
   function handleSubmit(event){
-    event.preventDefault();
+    event.preventDefault(); 
   }
     
         return(
