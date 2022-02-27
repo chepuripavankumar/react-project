@@ -312,7 +312,7 @@
     height: 100%;
     top: 0;
     right: 12px;
-    padding: 0 5px;
+    padding: 5px 5px;
     cursor: pointer;
     -webkit-transition: background 0.4s;
     -o-transition: background 0.4s;
