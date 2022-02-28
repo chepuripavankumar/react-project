@@ -25,7 +25,7 @@ export default function Home(){
    const result= await axios.post("https://2202d591-0df9-45ab-b72b-9bdef9c554c3.mock.pstmn.io/login" ,
    {"password":password,"email": email})
 
-  console.log(result.data.token);
+  //console.log(result.data.token);
   localStorage.setItem("TOKEN",result.data.token)
   
   console.log(localStorage.getItem("TOKEN"))
