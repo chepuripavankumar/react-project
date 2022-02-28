@@ -1,30 +1,42 @@
-import React,{Component, useState} from 'react';
+import React,{Component, useEffect, useState} from 'react';
 import "./styles.css";
 import "./util.css"; 
-
+import axios from 'axios';
 import { Button } from 'react-bootstrap'; 
 export default function Home(){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function validateForm(){
+  useEffect (() => {
+
+  if (localStorage.getItem( 'user-info')){
+    }
+    },[])
+
+    
+
+
+
+
+  async function validateForm(){
     
     console.log(email);
     console.log(password);
+   const result= await axios.post("https://2202d591-0df9-45ab-b72b-9bdef9c554c3.mock.pstmn.io/login" ,
+   {"password":password,"email": email})
 
-return true;
+  console.log(result.data.token);
+  localStorage.setItem("TOKEN",result.data.token)
+  
+  console.log(localStorage.getItem("TOKEN"))
+  
   }
-
-
-
   function handleSubmit(event){
     event.preventDefault(); 
+  
   }
-    
-        return(
-    
-            
-        <div className="limiter">
+     return(     
+         <div className="limiter">
           <div className="container-login100">
             <div className="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
               <form className="login100-form validate-form flex-sb flex-w" onSubmit={handleSubmit}>
@@ -45,7 +57,7 @@ return true;
                   <span className="btn-show-pass">
                     <i className="fa fa-eye" />
                   </span>
-                  <input className="input100" type="password" name="password"value={password} onChange={(e)=>setPassword(e.target.value)} />
+                  <input className="input100" type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
                   <span className="focus-input100"/>
                 </div>
                 <div className="flex-sb-m w-full p-b-48">
@@ -65,6 +77,12 @@ return true;
                   <button type='button' className='btn btn-primary' onClick={()=>{validateForm()}}>
                     Login
                   </button>
+                  </div>
+                 
+        <div>
+                 
+      
+
                 </div>
               </form>
         <div id="dropDownSelect1" />
